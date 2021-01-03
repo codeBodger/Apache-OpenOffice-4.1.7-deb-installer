@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+echo "~!Begining instalation of 64 bit Open Office (4.1.7, en-GB) ..."
+
+echo "  ~!Purging Libre Office ..."
+
+sudo apt-get purge libreoffice*
+
+echo "  ~?Libre Office purged."
+
+echo "  ~!Changing directory ..."
+
+cd #
+
+echo "  ~!Creating temp dir ..."
+
+mkdir temp_AOO
+
+cd temp_AOO
+
+echo "  ~!Downloading Open Office (4.1.7, en-GB) ..."
+
+wget https://pilotfiber.dl.sourceforge.net/project/openofficeorg.mirror/4.1.7/binaries/en-GB/Apache_OpenOffice_4.1.7_Linux_x86-64_install-deb_en-GB.tar.gz
+
+sleep 16
+
+echo "  ~?Download complete."
+
+echo "  ~!Extracting DEBs ..."
+
+tar xvzf Apache_OpenOffice*
+
+echo "  ~?Extraction complete."
+
+echo "  ~!Changing directory ..."
+
+cd en-GB
+
+cd DEBS
+
+echo "  ~!Installing main program ..."
+
+sudo dpkg -i *.deb
+
+echo "  ~!Changing directory ..."
+
+cd desktop-integration
+
+echo "  ~!Installing desktop integration ..."
+
+sudo dpkg -i *.deb
+
+echo "  ~!Removing temp dir ..."
+
+cd #
+
+rm -r temp_AOO
+
+echo "  ~!Installation Complete!"
+
+echo "  ~!Enjoy!"
+
+echo "  ~!Thank you for using my software! ~Rowan Ackerman"
